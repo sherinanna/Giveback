@@ -1,0 +1,11 @@
+.Homepage {
+  background-image: url("background.jpg");
+  background-position: left;
+  height: 80vh;
+
+  opacity: 1;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-color: #e0ebeb;
+  position: relative;
+}
