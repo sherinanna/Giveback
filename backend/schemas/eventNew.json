@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "title",
+    "description",
+    "start_date",
+    "end_date",
+    "region",
+    "zip_code",
+    "owner"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "",
+      "title": "The title Schema",
+      "examples": ["Street Vendor Project - Join Our Monthly Outreach Team!"]
+    },
+    "description": {
+      "type": "string",
+      "default": "",
+      "title": "The description Schema",
+      "examples": [
+        "Share information with NYC's street vendors about their rights and responsibilities. Get to know another dimension the city,"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "default": "",
+      "title": "The category Schema",
+      "examples": ["Strengthening Communities"]
+    },
+    "organization": {
+      "type": "string",
+      "default": "",
+      "title": "The organization Schema",
+      "examples": ["Street Vendor Project"]
+    },
+    "recurrence": {
+      "type": "string",
+      "default": "",
+      "title": "The recurrence Schema",
+      "examples": ["ongoing"]
+    },
+    "start_date": {
+      "type": "string",
+      "default": "",
+      "title": "The start_date Schema",
+      "examples": ["June 4 2022"]
+    },
+    "end_date": {
+      "type": "string",
+      "default": "",
+      "title": "The end_date Schema",
+      "examples": ["June 5 2022"]
+    },
+    "region": {
+      "type": "string",
+      "default": "",
+      "title": "The region Schema",
+      "examples": ["MANHATTAN"]
+    },
+    "zip_code": {
+      "type": "string",
+      "default": "",
+      "title": "The zip_code Schema",
+      "examples": ["13096"]
+    },
+    "owner": {
+      "type": "string",
+      "default": "",
+      "title": "The owner Schema",
+      "examples": ["testadmin"]
+    }
+  },
+  "examples": [
+    {
+      "title": "Street Vendor Project - Join Our Monthly Outreach Team!",
+      "description": "Share information with NYC's street vendors about their rights and responsibilities. Get to know another dimension the city,",
+      "category": "Strengthening Communities",
+      "organization": "Street Vendor Project",
+      "recurrence": "ongoing",
+      "start_date": "June 4 2022",
+      "end_date": "June 5 2022",
+      "region": "MANHATTAN",
+      "zip_code": "13096",
+      "owner": "testadmin"
+    }
+  ]
+}

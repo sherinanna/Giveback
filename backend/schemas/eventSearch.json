@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "",
+      "title": "The title Schema",
+      "examples": ["Street Vendor Project - Join Our Monthly Outreach Team!"]
+    },
+    "zip_code": {
+      "type": "string",
+      "default": "",
+      "title": "The zip_code Schema",
+      "examples": ["13096"]
+    }
+  }
+}
