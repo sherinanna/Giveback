@@ -54,21 +54,23 @@ function EventDetail() {
   if (!event) return <LoadingSpinner />;
 
   return (
-    <Container className="EventDetail">
+    <Container className="EventDetail m-5">
       <Row>
         <Col xs={7}>
           <div className="col-md-8 offset-md-2">
-            <h4>{event.title} </h4>
+            <h4 style={{ color: "#bc5148" }}>{event.title.toUpperCase()} </h4>
             <h5>Organization: {event.organization}</h5>
+
+            <hr />
+            <p>{event.description}</p>
+
             <button
-              className="btn btn-danger font-weight-bold text-uppercase float-right"
+              className="btn mt-3 btn-danger font-weight-bold text-uppercase float-right"
               onClick={handleApply}
               disabled={applied}
             >
               {applied ? "Applied" : "I want to Volunteer"}
             </button>
-            <hr />
-            <p>{event.description}</p>
           </div>
         </Col>
         <Col>

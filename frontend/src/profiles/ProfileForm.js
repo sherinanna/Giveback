@@ -86,16 +86,18 @@ function ProfileForm() {
   }
 
   return (
-    <div className="col-md-6 col-lg-4 offset-md-3 offset-lg-4">
-      <h3>Profile</h3>
+    <div className="col-md-6 col-lg-4 offset-md-3 offset-lg-4 mt-3">
       <div className="card">
+        <h3 className="card-title"> Profile</h3>
         <div className="card-body">
           <form>
-            <div className="form-group">
-              <label>Username</label>
+            <div className="form-group mb-2">
+              <label>
+                <b>Username</b>
+              </label>
               <p className="form-control-plaintext">{formData.username}</p>
             </div>
-            <div className="form-group">
+            <div className="form-group fw-bold mb-3">
               <label>First Name</label>
               <input
                 name="firstName"
@@ -104,7 +106,7 @@ function ProfileForm() {
                 onChange={handleChange}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group fw-bold mb-3">
               <label>Last Name</label>
               <input
                 name="lastName"
@@ -113,7 +115,7 @@ function ProfileForm() {
                 onChange={handleChange}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group fw-bold mb-3">
               <label>Email</label>
               <input
                 name="email"
@@ -122,8 +124,8 @@ function ProfileForm() {
                 onChange={handleChange}
               />
             </div>
-            <div className="form-group">
-              <label>Confirm password to make changes:</label>
+            <div className="form-group fw-bold">
+              <label>Confirm password to make changes</label>
               <input
                 type="password"
                 name="password"
@@ -142,7 +144,7 @@ function ProfileForm() {
             ) : null}
 
             <button
-              className="btn btn-primary btn-block mt-4"
+              className="btn btn-success btn-block mt-4"
               onClick={handleSubmit}
             >
               Save Changes

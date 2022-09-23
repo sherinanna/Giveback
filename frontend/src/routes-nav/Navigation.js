@@ -3,6 +3,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserContext from "../auth/UserContext";
+import { FaHandHoldingHeart } from "react-icons/fa";
 import "./Navigation.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav, NavItem } from "reactstrap";
@@ -68,6 +69,7 @@ function Navigation({ logout }) {
 
   return (
     <nav className="Navigation navbar navbar-expand-md mt-3">
+      {/* <FaHandHoldingHeart /> */}
       <Link className="navbar-brand" to="/">
         Giveback
       </Link>

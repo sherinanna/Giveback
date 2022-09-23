@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import "./SearchForm.css";
 
 /** Search widget.
@@ -32,17 +33,29 @@ function SearchForm({ searchFor }) {
   }
 
   return (
-    <div className="SearchForm mb-4">
-      <form className="form-inline" onSubmit={handleSubmit}>
+    <div className="SearchForm mb-4 mt-4">
+      <h3 className="text-center"> Discover Opportunities</h3>
+      <form className=" form-inline input-group" onSubmit={handleSubmit}>
         <input
-          className="form-control form-control-lg flex-grow-1"
+          className="form-control "
           name="searchTerm"
           placeholder="Enter search term.."
           value={searchTerm}
           onChange={handleChange}
         />
-        <button type="submit" className="btn btn-lg btn-primary">
-          Submit
+
+        <button
+          type="submit"
+          className="btn btn-lg search-btn input-group-append"
+        >
+          <FaSearch
+            style={{
+              color: "white",
+              fontSize: "40px",
+              backgroundColor: "#2c5d63",
+              padding: "10px",
+            }}
+          />
         </button>
       </form>
     </div>

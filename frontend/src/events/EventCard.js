@@ -1,4 +1,5 @@
 import React from "react";
+// import { FaLocationArrow } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import "./EventCard.css";
@@ -16,10 +17,13 @@ function EventCard(event) {
   return (
     <Link className="EventCard card" to={`/events/${event.id}`}>
       <div className="card-body">
-        <h4 className="card-title">{event.title} </h4>
-        <h5> with: {event.organization}</h5>
+        <h4 className="card-title">{event.title.toUpperCase()} </h4>
+        <h5 className="m-3">With: {event.organization}</h5>
 
-        <h6>{event.region}</h6>
+        <h5 className="m-3">
+          At:
+          <small>{event.region}</small>
+        </h5>
         <p> {event.description} </p>
       </div>
     </Link>

@@ -18,10 +18,11 @@ function Homepage() {
 
   return (
     <div className="Homepage">
-      <div className="container text-center">
+      <div className="container Homepage-content">
         <h1 className="mb-4 font-weight-bold">Giveback</h1>
         <p className="lead">
-          All the opportunities waiting for the right volunteer to step up
+          All the opportunities waiting for the right volunteer to step up.
+          Start here!
         </p>
         {currentUser ? (
           <h2>
@@ -29,10 +30,11 @@ function Homepage() {
           </h2>
         ) : (
           <p>
-            <Link className="btn btn-primary font-weight-bold mr-3" to="/login">
+            <Link className="btn btn-success font-weight-bold " to="/login">
               Log in
             </Link>
-            <Link className="btn btn-primary font-weight-bold" to="/signup">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <Link className="btn btn-success font-weight-bold " to="/signup">
               Sign up
             </Link>
           </p>

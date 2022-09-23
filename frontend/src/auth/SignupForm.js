@@ -37,9 +37,9 @@ const SignupForm = ({ signup }) => {
   };
   return (
     <div className="SignupForm">
-      <div className="container col-6 ">
-        <h3> Sign Up</h3>
+      <div className="container col-6 mt-5">
         <div className="card">
+          <h3 className="card-title"> Sign Up</h3>
           <div className="card-body">
             <form onSubmit={handleSubmit}>
               <div className="form-group">
@@ -93,7 +93,9 @@ const SignupForm = ({ signup }) => {
                 />
               </div>
               <br></br>
-              <button>Submit</button>
+              <button className="btn btn-success font-weight-bold">
+                Submit
+              </button>
             </form>
           </div>
         </div>

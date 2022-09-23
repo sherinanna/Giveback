@@ -33,7 +33,7 @@ const UserEventList = () => {
   if (!events) return <LoadingSpinner />;
 
   return (
-    <div className="EventList col-md-8 ">
+    <div className="EventList col-md-8 offset-md-2">
       <div className="EventList-list">
         {events.map((e) => (
           <EventCard

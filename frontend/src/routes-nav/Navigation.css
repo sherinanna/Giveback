@@ -5,10 +5,23 @@
   /* border-bottom: 2px solid rgba(0, 0, 0, 0.125); */
 }
 
-.navbar a {
-  color: #2c5d63;
+.navbar {
+  background-color: #2c5d63;
+  /* padding: 15px; */
 }
+
+.navbar-brand {
+  color: white;
+}
+
+.navbar-brand :hover {
+  color: #a7bcb9;
+}
+.navbar a {
+  color: white;
+}
+
 .nav-link.active {
   font-weight: bold;
-  color: black;
+  color: #a7bcb9;
 }

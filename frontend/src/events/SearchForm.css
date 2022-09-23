@@ -2,3 +2,10 @@
   box-shadow: none;
   border-color: #ced4da;
 }
+
+.search-btn {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}

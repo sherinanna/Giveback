@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import "./LoginForm.css";
 
 import UserContext from "./UserContext";
 
@@ -41,9 +42,9 @@ const LoginForm = ({ login }) => {
   };
   return (
     <div className="LoginForm">
-      <div className="container col-6 ">
-        <h3> Log In</h3>
+      <div className="container col-6  mt-5">
         <div className="card">
+          <h3 className="card-title"> Welcome Back</h3>
           <div className="card-body">
             <form onSubmit={handleSubmit}>
               <div className="form-group">
@@ -66,8 +67,10 @@ const LoginForm = ({ login }) => {
                   onChange={handleChange}
                 />
               </div>
-
-              <button>Submit</button>
+              <br></br>
+              <button className="btn btn-success font-weight-bold">
+                Submit
+              </button>
             </form>
           </div>
         </div>
