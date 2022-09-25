@@ -25,48 +25,47 @@ async function commonBeforeAll() {
     ]
   );
 
-  //   const resultsEvents = await db.query(`
-  //     INSERT INTO events ( title,description,category,organization,recurrence,start_date,end_date,region,zip_code,owner)
-  //     VALUES ("my event1",
-  //         "The NYAWC Volunteer Council proudly presents:  Spring Volunteer Information Forum.  - Hear first-hand from current volunteers about volunteer activities - Mingle and chat with like-minded people - Refreshments provided",
-  //       "Strengthening Communities",
-  //       "New York Asian Women's Center",
-  //        "onetime",
-  //        "June 4 2022",
-  //       "June 5 2022",
-  //        "MANHATTAN",
-  //       "11723",
-  //      "u1",),
-  //            ("my event2",
-  //         "The NYAWC Volunteer Council proudly presents:  Spring Volunteer Information Forum.  - Hear first-hand from current volunteers about volunteer activities - Mingle and chat with like-minded people - Refreshments provided",
-  //       "Strengthening Communities",
-  //       "New York Asian Women's Center",
-  //        "onetime",
-  //        "June 4 2022",
-  //       "June 5 2022",
-  //        "MANHATTAN",
-  //       "11723",
-  //      "u1",),
-  //            ("my event3",
-  //         "The NYAWC Volunteer Council proudly presents:  Spring Volunteer Information Forum.  - Hear first-hand from current volunteers about volunteer activities - Mingle and chat with like-minded people - Refreshments provided",
-  //       "Strengthening Communities",
-  //       "New York Asian Women's Center",
-  //        "onetime",
-  //        "June 4 2022",
-  //       "June 5 2022",
-  //        "MANHATTAN",
-  //       "11723",
-  //      "u1",),
+  const resultsEvents = await db.query(`
+      INSERT INTO events ( title,description,category,organization,recurrence,start_date,end_date,region,zip_code,owner)
+      VALUES ('my event1',
+          'The NYAWC Volunteer Council proudly presents:  Spring Volunteer Information Forum.  - Hear first-hand from current volunteers about volunteer activities - Mingle and chat with like-minded people - Refreshments provided',
+      'Strengthening Communities',
+        'New York Asian Womens Center',
+         'onetime',
+         'June 4 2022',
+        'June 5 2022',
+         'MANHATTAN',
+        '11723',
+       'u1'),
+             ('my event2',
+          'The NYAWC Volunteer Council proudly presents:  Spring Volunteer Information Forum.  - Hear first-hand from current volunteers about volunteer activities - Mingle and chat with like-minded people - Refreshments provided',
+      'Strengthening Communities',
+        'New York Asian Womens Center',
+         'onetime',
+         'June 4 2022',
+        'June 5 2022',
+         'MANHATTAN',
+        '11723',
+       'u1'),
+             ('my event3',
+          'The NYAWC Volunteer Council proudly presents:  Spring Volunteer Information Forum.  - Hear first-hand from current volunteers about volunteer activities - Mingle and chat with like-minded people - Refreshments provided',
+      'Strengthening Communities',
+        'New York Asian Womens Center',
+         'onetime',
+         'June 4 2022',
+        'June 5 2022',
+         'MANHATTAN',
+        '11723',
+       'u1')
+      RETURNING id`);
+  testEventIds.splice(0, 0, ...resultsEvents.rows.map((r) => r.id));
 
-  //     RETURNING id`);
-  //   testEventIds.splice(0, 0, ...resultsEvents.rows.map((r) => r.id));
-
-  //   await db.query(
-  //     `
-  //         INSERT INTO applications(username, event_id)
-  //         VALUES ('u1', $1)`,
-  //     [testEventIds[0]]
-  //   );
+  await db.query(
+    `
+          INSERT INTO applications(username, event_id)
+          VALUES ('u1', $1)`,
+    [testEventIds[0]]
+  );
 }
 
 async function commonBeforeEach() {

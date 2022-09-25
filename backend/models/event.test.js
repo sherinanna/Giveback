@@ -2,7 +2,7 @@
 
 const { NotFoundError, BadRequestError } = require("../expressError");
 const db = require("../db.js");
-const Job = require("./event.js");
+const Event = require("./event.js");
 const {
   commonBeforeAll,
   commonBeforeEach,
@@ -34,8 +34,33 @@ describe("create", function () {
 
   test("works", async function () {
     let event = await Event.create(newEvent);
+    event.startDate = new Date(event.startDate)
+      .toLocaleDateString("en-us", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+      .replace(",", "");
+
+    event.endDate = new Date(event.endDate)
+      .toLocaleDateString("en-us", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+      .replace(",", "");
+
     expect(event).toEqual({
-      ...newEvent,
+      title: "new event",
+      description: "spring cleaning",
+      category: "Strengthening Communities",
+      organization: "New York Asian Women's Center",
+      recurrence: "onetime",
+      startDate: "June 12 2022",
+      endDate: "June 13 2022",
+      region: "MANHATTAN",
+      zipCode: "11723",
+      owner: "u1",
       id: expect.any(Number),
     });
   });
@@ -46,6 +71,23 @@ describe("create", function () {
 describe("findAll", function () {
   test("works: no filter", async function () {
     let events = await Event.findAll();
+    events.forEach((event) => {
+      event.startDate = new Date(event.startDate)
+        .toLocaleDateString("en-us", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+        .replace(",", "");
+
+      event.endDate = new Date(event.endDate)
+        .toLocaleDateString("en-us", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+        .replace(",", "");
+    });
     expect(events).toEqual([
       {
         id: testEventIds[0],
@@ -53,7 +95,7 @@ describe("findAll", function () {
         description:
           "The NYAWC Volunteer Council proudly presents:  Spring Volunteer Information Forum.  - Hear first-hand from current volunteers about volunteer activities - Mingle and chat with like-minded people - Refreshments provided",
         category: "Strengthening Communities",
-        organization: "New York Asian Women's Center",
+        organization: "New York Asian Womens Center",
         recurrence: "onetime",
         startDate: "June 4 2022",
         endDate: "June 5 2022",
@@ -67,7 +109,7 @@ describe("findAll", function () {
         description:
           "The NYAWC Volunteer Council proudly presents:  Spring Volunteer Information Forum.  - Hear first-hand from current volunteers about volunteer activities - Mingle and chat with like-minded people - Refreshments provided",
         category: "Strengthening Communities",
-        organization: "New York Asian Women's Center",
+        organization: "New York Asian Womens Center",
         recurrence: "onetime",
         startDate: "June 4 2022",
         endDate: "June 5 2022",
@@ -81,7 +123,7 @@ describe("findAll", function () {
         description:
           "The NYAWC Volunteer Council proudly presents:  Spring Volunteer Information Forum.  - Hear first-hand from current volunteers about volunteer activities - Mingle and chat with like-minded people - Refreshments provided",
         category: "Strengthening Communities",
-        organization: "New York Asian Women's Center",
+        organization: "New York Asian Womens Center",
         recurrence: "onetime",
         startDate: "June 4 2022",
         endDate: "June 5 2022",
@@ -92,8 +134,26 @@ describe("findAll", function () {
     ]);
   });
 
-  test("works: by title & zipcode", async function () {
-    let events = await Event.findAll({ zipCode: "11723", title: "event3" });
+  test("works: by title ", async function () {
+    let events = await Event.findAll({ title: "event3" });
+    events.forEach((event) => {
+      event.startDate = new Date(event.startDate)
+        .toLocaleDateString("en-us", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+        .replace(",", "");
+
+      event.endDate = new Date(event.endDate)
+        .toLocaleDateString("en-us", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+        .replace(",", "");
+    });
+
     expect(events).toEqual([
       {
         id: testEventIds[2],
@@ -101,7 +161,7 @@ describe("findAll", function () {
         description:
           "The NYAWC Volunteer Council proudly presents:  Spring Volunteer Information Forum.  - Hear first-hand from current volunteers about volunteer activities - Mingle and chat with like-minded people - Refreshments provided",
         category: "Strengthening Communities",
-        organization: "New York Asian Women's Center",
+        organization: "New York Asian Womens Center",
         recurrence: "onetime",
         startDate: "June 4 2022",
         endDate: "June 5 2022",
@@ -118,13 +178,28 @@ describe("findAll", function () {
 describe("get", function () {
   test("works", async function () {
     let event = await Event.get(testEventIds[0]);
+    event.startDate = new Date(event.startDate)
+      .toLocaleDateString("en-us", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+      .replace(",", "");
+
+    event.endDate = new Date(event.endDate)
+      .toLocaleDateString("en-us", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+      .replace(",", "");
     expect(event).toEqual({
       id: testEventIds[0],
       title: "my event1",
       description:
         "The NYAWC Volunteer Council proudly presents:  Spring Volunteer Information Forum.  - Hear first-hand from current volunteers about volunteer activities - Mingle and chat with like-minded people - Refreshments provided",
       category: "Strengthening Communities",
-      organization: "New York Asian Women's Center",
+      organization: "New York Asian Womens Center",
       recurrence: "onetime",
       startDate: "June 4 2022",
       endDate: "June 5 2022",
@@ -152,13 +227,28 @@ describe("update", function () {
   };
   test("works", async function () {
     let event = await Event.update(testEventIds[0], updateData);
+    event.startDate = new Date(event.startDate)
+      .toLocaleDateString("en-us", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+      .replace(",", "");
+
+    event.endDate = new Date(event.endDate)
+      .toLocaleDateString("en-us", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+      .replace(",", "");
     expect(event).toEqual({
       id: testEventIds[0],
       title: "New title",
       description:
         "The NYAWC Volunteer Council proudly presents:  Spring Volunteer Information Forum.  - Hear first-hand from current volunteers about volunteer activities - Mingle and chat with like-minded people - Refreshments provided",
       category: "Strengthening Communities",
-      organization: "New York Asian Women's Center",
+      organization: "New York Asian Womens Center",
       recurrence: "onetime",
       startDate: "June 4 2022",
       endDate: "June 5 2022",

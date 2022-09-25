@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "./UserContext";
+import Alert from "../common/Alert";
 
 const SignupForm = ({ signup }) => {
   const { currentUser } = useContext(UserContext);
@@ -9,8 +10,11 @@ const SignupForm = ({ signup }) => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
+    firstName: "",
+    lastName: "",
+    email: "",
   });
-
+  const [formErrors, setFormErrors] = useState([]);
   let result;
   useEffect(() => {
     console.log(waitForCurrentUser);
@@ -25,7 +29,7 @@ const SignupForm = ({ signup }) => {
     setFormData("");
 
     if (result.success) setWaitForCurrentUser(true);
-    else alert("Unsuccessful signup");
+    else setFormErrors(result.errors);
   }
 
   const handleChange = (e) => {
@@ -93,6 +97,10 @@ const SignupForm = ({ signup }) => {
                 />
               </div>
               <br></br>
+
+              {formErrors.length ? (
+                <Alert type="danger" messages={formErrors} />
+              ) : null}
               <button className="btn btn-success font-weight-bold">
                 Submit
               </button>

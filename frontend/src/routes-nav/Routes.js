@@ -8,6 +8,7 @@ import LoginForm from "../auth/LoginForm";
 import ProfileForm from "../profiles/ProfileForm";
 import SignupForm from "../auth/SignupForm";
 import PrivateRoute from "./PrivateRoute";
+import NewEventForm from "../events/NewEventForm";
 
 /** Site-wide routes.
  *
@@ -45,6 +46,10 @@ function Routes({ login, signup }) {
 
         <PrivateRoute exact path="/users/:username/myevents">
           <UserEventList />
+        </PrivateRoute>
+
+        <PrivateRoute exact path="/events/new">
+          <NewEventForm />
         </PrivateRoute>
 
         <PrivateRoute exact path="/events/:id">

@@ -3,6 +3,8 @@ import SearchForm from "./SearchForm";
 import GivebackApi from "../api/api";
 import EventCard from "./EventCard";
 import LoadingSpinner from "../common/LoadingSpinner";
+import { FaPlusCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 /** Show page with list of volunteering events.
  *
@@ -34,6 +36,21 @@ function EventList() {
 
   return (
     <div className="EventList col-md-8 offset-md-2">
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          margin: "10px",
+        }}
+      >
+        <Link
+          className="btn btn-success font-weight-bold btn-inline-block"
+          to="/events/new"
+        >
+          Create own events
+        </Link>
+      </div>
       <SearchForm searchFor={search} />
       {events.length ? (
         <div className="EventList-list">

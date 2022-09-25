@@ -18,7 +18,7 @@ class Event {
     const result = await db.query(
       `INSERT INTO events ( title,description,category,organization,recurrence,start_date,end_date,region,zip_code,owner)
            VALUES ($1, $2, $3, $4,$5, $6, $7, $8,$9,$10)
-           RETURNING id, title,description,category,organization,recurrence,start_date AS startDate, end_date as endDate,region,zip_code AS zipCode,owner`,
+           RETURNING id, title,description,category,organization,recurrence,start_date AS "startDate", end_date as "endDate",region,zip_code AS "zipCode",owner`,
       [
         data.title,
         data.description,
@@ -48,7 +48,7 @@ class Event {
    * */
 
   static async findAll({ zipCode, title } = {}) {
-    let query = `SELECT id, title,description,category,organization,recurrence,start_date AS startDate,end_date AS endDate,region,zip_code AS zipCode,owner
+    let query = `SELECT id, title,description,category,organization,recurrence,start_date AS "startDate",end_date AS "endDate",region,zip_code AS "zipCode",owner
                  FROM events`;
     let whereExpressions = [];
     let queryValues = [];
@@ -120,7 +120,7 @@ class Event {
     const querySql = `UPDATE events 
                       SET ${setCols} 
                       WHERE id = ${idVarIdx} 
-                      RETURNING id, title,description,category,organization,recurrence,start_date AS startDate, end_date as endDate,region,zip_code AS zipCode,owner`;
+                      RETURNING id, title,description,category,organization,recurrence,start_date AS "startDate", end_date as "endDate",region,zip_code AS "zipCode",owner`;
     const result = await db.query(querySql, [...values, id]);
     const event = result.rows[0];
 

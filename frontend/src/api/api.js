@@ -45,12 +45,12 @@ class GivebackApi {
     let res = await this.request("events", { title });
     return res.events;
   }
-  /** Get list of events for a user */
 
-  // static async getUserEvents(username) {
-  //   let res = await this.request(`events/${id}`);
-  //   return res.events;
-  // }
+  /** create new event */
+  static async createEvent(data) {
+    let res = await this.request("events", data, "post");
+    return res.event;
+  }
 
   /** Get details on an event  by id. */
 

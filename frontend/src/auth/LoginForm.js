@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import "./LoginForm.css";
+import Alert from "../common/Alert";
 
 import UserContext from "./UserContext";
 
@@ -12,7 +13,7 @@ const LoginForm = ({ login }) => {
     username: "",
     password: "",
   });
-
+  const [formErrors, setFormErrors] = useState([]);
   let result;
   useEffect(() => {
     console.log(waitForCurrentUser);
@@ -28,7 +29,9 @@ const LoginForm = ({ login }) => {
     if (result.success) {
       setWaitForCurrentUser(true);
       console.log(waitForCurrentUser);
-    } else alert("Invalid credentials");
+    } else {
+      setFormErrors(result.errors);
+    }
 
     // setFormData("");
   }
@@ -68,6 +71,10 @@ const LoginForm = ({ login }) => {
                 />
               </div>
               <br></br>
+
+              {formErrors.length ? (
+                <Alert type="danger" messages={formErrors} />
+              ) : null}
               <button className="btn btn-success font-weight-bold">
                 Submit
               </button>
