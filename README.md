@@ -6,8 +6,8 @@ https://receptive-robin.surge.sh/
 
 ## Goal
 GiveBack is an app where users can support activities of various nonprofit organizations.  Volunteers can sign up and identify opportunities that suit their interests as well as create free events that match their skill. Hence any user can :
- ### Create own events and invite volunteers
- ### Register as volunteer for an event
+ ###### Create own events and invite volunteers
+ ###### Register as volunteer for an event
 
 
 ## Users
