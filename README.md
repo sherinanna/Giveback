@@ -2,69 +2,55 @@
 
 https://receptive-robin.surge.sh/
 
-![This is an image](/capstone2.png)
+![This is an image](/capstone%202.png)
 
 ## Goal
-A go-to website to search for cocktails, get recipes, curate a list of favorites and much more.
+GiveBack is an app where users can support activities of various nonprofit organizations.  Volunteers can sign up and identify opportunities that suit their interests as well as create free events that match their skill. Hence any user can :
+ ### Create own events and invite volunteers
+ ### Register as volunteer for an event
+
 
 ## Users
-Anyone above the age of 18 who is  interested to know more about cocktails. A place for amateurs to search for cocktail recipes, experts to quickly create new drinks with at-hand ingredients, with guidance on the best look for a drink.
+Anyone interested in investing time and effort to give back to society.
 
 ## Technology
-Frontend: HTML,CSS Javascript, Jquery, Bootstrap
+Frontend: ReactJS
 
-Backend: Python, Flask, SQLAlchemy, PostgresSQL
+Backend: Nodejs, Express, PostgresSQL
 
 ## Data
-API Choice: The Cocktail DB
-https://www.thecocktaildb.com/api.php?ref=apilist.fun
-The API provides cocktail information by name, ingredients, alcohol level and even glass type.
+Created custome backend API and populated it with sample data. The seed data was obtained from Newyork city Voulnteer opportunity data available as csv at https://opendata.cityofnewyork.us/
 
 ## Database Schema
 The schema consist of following three tables:
 
-**Users** : id, username, password,age,first_name, last_name
+**Users** : username, password,first_name, last_name,email,is_admin
 
-**Reviews** : id, title, description,user_id, cocktail_id
+**Events** : id, title, description, category, start_date,  end_date, recurrence, org_title, region, zip_code, owner
 
-**Favorites** : id,user_id,cocktail_id
+**Applications** : username,event_id
 
-![This is an image](/DatabaseDiagram%20.png)
+![This is an image](/capstone%202.png)
+
+## Features implemented
+1. Authentication: Signup,login,logout
+2. Update user profile
+3. Search for events by keyword
+4. Create own events
+5. Apply/Volunteer to events
 
 ## UserFlow
 
-The website homepage will display a random list of cocktails with images. Users can also view the links to search for cocktails by various categories (search by name,ingredients, and category). The page also displays the login/logout/signup links.
+The website homepage will display the login/signup links. User needs to access the application.
 
-To further access the app,each user will need to sign up and login. Only adults above the age of 18 years will be allowed to signup.Users can see the list of cocktails that match the search criteria  and  link to the individual cocktail page that includes the recipe and user reviews.
+Events page: this will display the list of events and include the search form to filter for events. Each event click will direct to the event details page
 
-Users have the option to favorite drinks which gets saved to the user account and post reviews if interested. 
+My events page: display the events associated with the logged in user. Event click will direct to the event details page
 
-## How to run the app
-You will need to install Python3 and set up a postgress database. Then follow the below steps to run the code successfully:
+Profile page: displays form to update user profile
 
-Create the python virtual environment
-```
-$ python3 -m venv venv
-$ source venv/bin/activate
-```
-Install required packages
-```
-(venv) $ pip install -r requirements.txt
-```
-
-Setup the database
-```
-(venv) $ createdb cocktail
-(venv) $ python seed.py
-```
-
-Start the server
-```
-(venv) $ flask run
-```
 
 ## Testing
-Integration testing has been implemented using the unittest module in Python. There are four test files included:two for testing the model, one for testing the routes and one to test additional logic.
-
-To run a file containing unittests, you can run the command **FLASK_ENV=production python -m unittest name-of-python-file**
+Integration testing has been implemented using the **Jest** framework and the testing library **supertest**. All the backend routes and functionality include corresponding test files
+The tests can be run using the command npm test
 
