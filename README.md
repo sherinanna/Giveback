@@ -19,7 +19,7 @@ Frontend: ReactJS
 Backend: Nodejs, Express, PostgresSQL
 
 ## Data
-Created custome backend API and populated it with sample data. The seed data was obtained from Newyork city Voulnteer opportunity data available as csv at https://opendata.cityofnewyork.us/
+Created custom backend API and populated it with sample data. The seed data was obtained from Newyork city Voulnteer opportunity data available as csv at https://opendata.cityofnewyork.us/
 
 ## Database Schema
 The schema consist of following three tables:
